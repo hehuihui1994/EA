@@ -126,7 +126,9 @@ rules[C].Twenty-Eighth AAAI Conference on Artificial Intelligence. 2014.
 
 现在用于multi-label的神经网络的方法可以分为BRNN、TDNN两种，其中TDNN方法更多。JBNN模型是我们提出的方法，如图：
 
+<div align=center>
 ![JBNN](Images/JBNN.png)
+</div>
 
 **(2) paper 3**
 
