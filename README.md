@@ -14,6 +14,8 @@
 │   	├── ATAE_LSTM_dis0_emo.py	paper1
 │   	├── ATAE_BiLSTM_dis0_emo.py	paper1
 │   	├── EATT_BiLSTM_dis0_emo.py
+│   	├── Mem_LSTM_dis0_emo.py paper10中利用位置信息跟情绪词的方式
+│   	├── Mem_BiLSTM_dis0_emo.py paper10
 │   ├── BiLSTM_ATT.py	最简单的文本分类
 │   ├── BiLSTM_ATT_dis.py	dis以词嵌入的方式拼接在每个cause中
 │   ├── BiLSTM_ATT_dis_one-hot.py	隐层拼接dis的one-hot表示
@@ -84,6 +86,8 @@
 [9] Wen S, Wan X. Emotion classification in microblog texts using class sequential
 rules[C].Twenty-Eighth AAAI Conference on Artificial Intelligence. 2014.	
 
+[10] Gui L, Hu J, He Y, et al. A question answering approach to emotion cause extraction[J]. arXiv preprint arXiv:1708.05482, 2017.
+
 
 
 ## 3 Cause
@@ -113,6 +117,16 @@ rules[C].Twenty-Eighth AAAI Conference on Artificial Intelligence. 2014.
 ​	ATAE中，模型利用隐藏层h拼接目标词向量（target）学习attention。
 
 ​	EATT中，将隐藏层与目标词向量拼接得到v，将输入层与目标词向量拼接的结果记为e，将v与e逐元素相乘的结果记为new_target，最后利用隐藏层h拼接new_target学习attention。
+
+**(5) MEM**
+
+​	paper10中将位置信息以词嵌入的方式拼接在每个cause中，对于情绪词信息，采用如下方式：
+
+![mem1](Images/mem1.png)
+
+![mem2](Images/mem2.png)
+
+这是论文中最简单的1-hop的模型。在我的代码中，我将公式中的e_i（词嵌入）换成h_i（经过LSTM或者BiLSTM之后得到的隐层），然后采用上述方法。
 
 
 
